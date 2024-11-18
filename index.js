@@ -8,7 +8,13 @@ connectToMongo();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://saurav-sinha-3141.github.io/xeno-task-frontend',
+    methods: ['GET', 'POST'],
+    credentials: true,
+  })
+);
 
 // Available Routes
 app.use("/api/customer", routerCustomer);
